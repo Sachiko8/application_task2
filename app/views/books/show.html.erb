@@ -1,0 +1,33 @@
+<%= render "partial/sidebar", {user: @user, book: @book} %>
+
+
+<div class="col-xs-9">
+
+
+  <h1>Book detail</h1>
+  <table class="table">
+
+
+    <tr>
+      <td> <%= attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", size: '100x100' %> </td>
+      <td> <%= @book.title %> </td>
+      <td> <%= @book.opinion %> </td>
+
+            <% if @user == current_user %>
+
+
+      <td> <%= link_to edit_book_path, class: "edit_book_#{@book.id}" do %>
+        <button class="btn btn-success">Edit</button>
+        <% end %>
+       </td>
+      <td> <%= link_to book_path, method: :delete, class: "destroy_book_#{@book.id}" do %>
+        <button class="btn btn-danger">Destroy</button>
+        <% end %>
+      </td>
+      <% end %>
+    </tr>
+
+  </table>
+</div>
+</div>
+

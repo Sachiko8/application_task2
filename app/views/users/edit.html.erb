@@ -1,0 +1,21 @@
+
+<h1>User info</h1>
+
+<%= form_for @user do |f| %>
+ 
+  <div class="field">
+  	<h4>Name
+    <%= f.text_field :name, class: "name" %></h4><br>
+    <h4>Image
+    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no-image.jpg" %>
+      <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user_image" %>
+    </h4><br>
+    <h4>Introduction
+    <%= f.text_area :Introduction %></h4><br>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit "Update User" %>
+  </div>
+
+<% end %>
