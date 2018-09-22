@@ -13,14 +13,13 @@
       <td> <%= @book.title %> </td>
       <td> <%= @book.opinion %> </td>
 
-            <% if @user == current_user %>
 
-
-      <td> <%= link_to edit_book_path, class: "edit_book_#{@book.id}" do %>
+    <% if @user == current_user %>
+      <td> <%= link_to edit_book_path, class: "edit_book_#{book.id}" do %>
         <button class="btn btn-success">Edit</button>
         <% end %>
        </td>
-      <td> <%= link_to book_path, method: :delete, class: "destroy_book_#{@book.id}" do %>
+      <td> <%= link_to book_path, method: :delete, class: "destroy_book_#{book.id}" do %>
         <button class="btn btn-danger">Destroy</button>
         <% end %>
       </td>
