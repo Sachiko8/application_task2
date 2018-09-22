@@ -1,4 +1,4 @@
-<%= render "partial/sidebar", {user: @user, book: @book} %>
+<%= render "partial/sidebar", {user: @user, book: Book.new } %>
 
 
 <div class="col-xs-9">
@@ -7,7 +7,6 @@
   <h1>Book detail</h1>
   <table class="table">
 
-
     <tr>
       <td> <%= attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", size: '100x100' %> </td>
       <td> <%= @book.title %> </td>
@@ -15,13 +14,16 @@
 
 
     <% if @user == current_user %>
-      <td> <%= link_to edit_book_path do %>
-        <button class="btn btn-success edit_book_#{book.id}" >Edit</button>
-        <% end %>
+      <td> 
+        <button class="btn btn-success" >
+        <%= link_to "Edit", edit_book_path, class: "edit_book_#{@book.id}" %>
+      </button>
        </td>
-      <td> <%= link_to book_path, method: :delete do %>
-        <button class="btn btn-danger destroy_book_#{book.id} ">Destroy</button>
-        <% end %>
+       
+      <td>
+        <button class="btn btn-danger">
+        <%= link_to "Destroy", book_path, method: :delete,class: "destroy_book_#{@book.id}" %>
+        </button>
       </td>
       <% end %>
     </tr>
