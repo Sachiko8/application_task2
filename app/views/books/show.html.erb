@@ -15,12 +15,12 @@
 
 
     <% if @user == current_user %>
-      <td> <%= link_to edit_book_path, class: "edit_book_#{book.id}" do %>
-        <button class="btn btn-success">Edit</button>
+      <td> <%= link_to edit_book_path do %>
+        <button class="btn btn-success edit_book_#{book.id}" >Edit</button>
         <% end %>
        </td>
-      <td> <%= link_to book_path, method: :delete, class: "destroy_book_#{book.id}" do %>
-        <button class="btn btn-danger">Destroy</button>
+      <td> <%= link_to book_path, method: :delete do %>
+        <button class="btn btn-danger destroy_book_#{book.id} ">Destroy</button>
         <% end %>
       </td>
       <% end %>
